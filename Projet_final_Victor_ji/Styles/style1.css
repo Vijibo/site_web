@@ -475,90 +475,222 @@ a{
 }
 
 /*---------Media Queries--------*/
+
 /*---------Media Queries--------*/
 @media (max-width: 768px) {
-    .container {
-        width: 90%; /* Ajustement pour donner un peu d'espace de marge */
-        left: 0; /* Centrer le conteneur sur l'écran */
-    }
 
-    .carousel {
-        max-width: 100%; /* Adaptation de la largeur du carousel */
-        margin: auto; /* Centre le carrousel */
+    html, body {
+        height: auto; /* Permet au corps de s'adapter au contenu */
+        overflow-x: hidden; /* Masque le débordement horizontal */
+        background-image: url('../Images/fond_jour.jpg'); /* Changez l'image de fond pour le mobile */
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+           
+    }   
+    
+
+    body {
+        flex-direction: column; /* Garde la direction en colonne */
+        padding: 10px; /* Ajoute un peu de padding */
+        height: 100%;
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        margin: auto;
+        
     }
 
     header {
-        height: auto; /* Ajuste la hauteur du header */
-        padding: 20px; /* Ajoute du padding pour un espacement intérieur */
+        height: auto; /* Réduit la hauteur du header */
+        font-size: 1.2em; /* Ajuste la taille de la police si nécessaire */
+        /* Vous pouvez ajouter d'autres styles ici */
+
     }
 
     .div1 {
-        flex-direction: column; /* Change l'alignement pour empiler les éléments */
-        align-items: center; /* Centre les éléments */
+        flex-direction: column; /* Change la direction du flex en colonne pour les petits écrans */
+        align-items: center; /* Centre les éléments pour une meilleure apparence */
     }
 
     .logo {
-        left: 50%; /* Centre le logo */
-        transform: translateX(-50%); /* Ajuste le positionnement du logo */
-        top: 10px; /* Ajuste la position verticale du logo */
+        width: 40px; /* Réduit la taille du logo */
+        height: 40px; /* Réduit la taille du logo */
+        top: 10px; /* Ajuste la position du logo */
+        left: 10px; /* Ajuste la position du logo */
     }
 
-    h1 {    
-        font-size: 4rem; /* Equivalent à 70px, ajustez selon votre design */
-        margin: 10px 0; /* Ajuste les marges pour plus de respiration */
+    .container {
+        top: 0; /* Ajuste la position du conteneur */
+        left: 0; /* Centre le conteneur */
+        right: 0; /* Assure que le conteneur s'adapte à l'écran */
+        justify-content: center; /* Centre le contenu du conteneur */
+        max-width: 100%; /* Permet au conteneur de prendre toute la largeur */
+    }
+
+    .eyeBall {
+        width: 35px; /* Réduit la taille de l'œil */
+        height: 35px; /* Réduit la taille de l'œil */
+        border-width: 3px; /* Réduit l'épaisseur de la bordure */
+        top: -5px; /* Ajuste la position de l'œil */
+    }
+
+    .iris {
+        width: 15px; /* Réduit la taille de l'iris */
+        height: 15px; /* Réduit la taille de l'iris */
+    }
+    
+    header {
+        height: auto; /* Permet au header de s'adapter à son contenu */
+        padding: 20px 0; /* Ajoute du padding pour un meilleur espacement */
+    }
+
+    h1 {
+        font-size: 40px; /* Réduit la taille du titre principal */
+        margin: 10px 0; /* Ajuste les marges */
     }
 
     h2 {
-        font-size: 1.5rem; /* Equivalent à 24px */
+        font-size: 18px; /* Réduit la taille du sous-titre */
+    }
+
+    #menu {
+        right: 20px; /* Ajuste la position du menu sur mobile */
     }
 
     .nav-top-right {
-        position: relative; /* Change la position pour éviter le débordement */
-        top: 0; /* Ajuste la position */
-        right: 0; /* Ajuste la position */
-    }
-
-    .nav-top-right ul {
-        display: flex; /* Utilise un flexbox pour aligner horizontalement */
-        flex-direction: column; /* Empile les éléments verticalement */
-        align-items: center; /* Centre les éléments */
-        padding: 0; /* Supprime le padding */
+        flex-direction: column; /* Empile les éléments du menu */
+        top: 20px; /* Positionne le menu plus bas pour laisser de l'espace */
+        right: 10px; /* Ajuste la position */
     }
 
     .nav-top-right ul li {
-        display: block; /* Affiche les liens en blocs pour un clic plus facile */
-        margin: 5px 0; /* Ajoute de l'espace vertical */
+        margin-left: 0; /* Réduit la marge pour le menu vertical */
+        margin-bottom: 10px; /* Ajoute de l'espace entre les éléments du menu */
+    }
+
+    .nav-top-right ul li a {
+        font-size: 18px; /* Réduit la taille de la police des liens */
+    }
+
+    .menu-toggle {
+        display: block; /* Affiche le bouton hamburger sur mobile */
+    }
+
+    .nav-menu {
+        display: flex; /* Affiche le menu sur mobile */
+    }
+    footer {
+        height: 20px; /* Augmente la hauteur du footer pour plus d'espace sur mobile */
+        font-size: 14px; /* Réduit la taille de la police pour le texte du footer */
+        padding: 10px; /* Ajoute du padding */
+        right: -7px;
+    }
+
+    .footer-links {
+        gap: 10px; /* Réduit l'espacement entre les icônes */
+        padding-left: 0; /* Enlève le padding à gauche */
+    }
+
+    .footer-icon {
+        width: 25px; /* Réduit la taille des icônes */
+        height: 25px;
+    }
+
+    .carousel {
+        max-width: 100%; /* Permet au carrousel de prendre toute la largeur */
+        height: auto; /* Ajuste la hauteur automatiquement */
+    }
+
+    .carousel-item img {
+        height: 200px; /* Réduit la hauteur des images du carrousel */
+    }
+
+    .carousel-prev, .carousel-next {
+        padding: 8px; /* Réduit le padding pour les flèches du carrousel */
+        font-size: 18px; /* Ajuste la taille de la police */
+    }
+
+    .modal-content {
+        width: 90%; /* Augmente la largeur de la modal pour s'adapter aux petits écrans */
+        max-width: 90%; /* Ajuste le max-width pour mobile */
+    }
+
+    .close {
+        font-size: 30px; /* Réduit la taille de l'icône de fermeture */
+        right: 15px; /* Ajuste la position pour le petit écran */
+        top: 10px; /* Ajuste la position pour le petit écran */
+    }
+
+    #logo_linkedin {
+        width: 35px; /* Réduit la taille du logo */
+        height: 35px;
+    }
+
+    .sorbonne {
+        width: 200px; /* Réduit la taille de l'élément Sorbonne pour mobile */
+        height: auto; /* Laisse la hauteur s'adapter */
+        left: 20px; /* Ajuste la position */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 8px; /* Réduit le padding pour un meilleur ajustement */
+    }
+
+    input[type="submit"] {
+        padding: 8px; /* Réduit le padding pour le bouton d'envoi */
+    }
+
+    .container_form {
+        padding: 30px; /* Réduit le padding pour les petits écrans */
+        left: 0; /* Centre la forme sur l'écran */
+        top: 100px;
+        padding-bottom: 100px;
+        height: auto;
+        width: auto;
+        margin: auto;
+    }
+
+    .body_form {
+        padding: 10px; /* Ajuste le padding pour s'adapter mieux à l'écran */
+        margin: auto;
+        width: auto;
+        height: auto;
+    }
+
+    section {
+        padding: 20px 30px; /* Réduit le padding pour les petits écrans */
+        top: 60px; /* Ajuste la position pour les petits écrans */
+        margin: 10px auto; /* Centre et ajuste les marges */
+       
     }
 
     .download-btn {
-        top: 0; /* Réinitialise la position */
-        left: 0; /* Réinitialise la position */
-        width: 100%; /* Prend toute la largeur */
-        margin: 20px 0; /* Ajoute de l'espace autour du bouton */
-    }
-
-    footer {
-        flex-direction: column; /* Aligne le contenu du footer verticalement */
-        height: auto; /* Ajuste la hauteur */
-        padding: 10px; /* Ajoute du padding */
+        padding: 8px 12px; /* Réduit le padding pour un meilleur ajustement */
+        top: 180px; /* Ajuste la position */
+        left: 0; /* Centre le bouton sur l'écran */
+        margin: 0 auto; /* Centre horizontalement */
+        display: block; /* Affiche le bouton comme un bloc pour le centrer */
     }
 
     .projects-grid {
-        grid-template-columns: 1fr; /* Empile les cartes de projet verticalement */
+        gap: 15px; /* Réduit l'espacement entre les cartes */
+        margin-bottom: 100px; /* Réduit l'espace en dessous du grid */
+        margin: auto;
+        height: auto;
+        bottom: auto;
+        padding: auto;
+        padding-right: auto;
     }
 
     .project-card {
-        padding: 30px; /* Réduit le padding interne */
+        padding: 40px; /* Réduit le padding pour les petites cartes */
     }
 
-    /* Réduire la taille de la police dans les cartes */
     .project-card h3 {
-        font-size: 1.2rem; /* Ajuste la taille de la police */
-    }
-
-    /* Pour les icônes du footer */
-    .footer-icon {
-        width: 25px; /* Ajuste la taille des icônes pour les petits écrans */
-        height: 25px;
+        font-size: 1.2em; /* Réduit la taille de la police des titres */
     }
 }
+
