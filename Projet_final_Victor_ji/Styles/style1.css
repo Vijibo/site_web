@@ -475,37 +475,90 @@ a{
 }
 
 /*---------Media Queries--------*/
+/*---------Media Queries--------*/
 @media (max-width: 768px) {
     .container {
-        width: 100%; /* Prend toute la largeur sur les petits écrans */
+        width: 90%; /* Ajustement pour donner un peu d'espace de marge */
+        left: 0; /* Centrer le conteneur sur l'écran */
     }
 
     .carousel {
         max-width: 100%; /* Adaptation de la largeur du carousel */
+        margin: auto; /* Centre le carrousel */
     }
 
     header {
         height: auto; /* Ajuste la hauteur du header */
+        padding: 20px; /* Ajoute du padding pour un espacement intérieur */
+    }
+
+    .div1 {
+        flex-direction: column; /* Change l'alignement pour empiler les éléments */
+        align-items: center; /* Centre les éléments */
+    }
+
+    .logo {
+        left: 50%; /* Centre le logo */
+        transform: translateX(-50%); /* Ajuste le positionnement du logo */
+        top: 10px; /* Ajuste la position verticale du logo */
     }
 
     h1 {    
         font-size: 4rem; /* Equivalent à 70px, ajustez selon votre design */
+        margin: 10px 0; /* Ajuste les marges pour plus de respiration */
     }
+
     h2 {
         font-size: 1.5rem; /* Equivalent à 24px */
     }
-    
+
+    .nav-top-right {
+        position: relative; /* Change la position pour éviter le débordement */
+        top: 0; /* Ajuste la position */
+        right: 0; /* Ajuste la position */
+    }
+
+    .nav-top-right ul {
+        display: flex; /* Utilise un flexbox pour aligner horizontalement */
+        flex-direction: column; /* Empile les éléments verticalement */
+        align-items: center; /* Centre les éléments */
+        padding: 0; /* Supprime le padding */
+    }
+
+    .nav-top-right ul li {
+        display: block; /* Affiche les liens en blocs pour un clic plus facile */
+        margin: 5px 0; /* Ajoute de l'espace vertical */
+    }
+
+    .download-btn {
+        top: 0; /* Réinitialise la position */
+        left: 0; /* Réinitialise la position */
+        width: 100%; /* Prend toute la largeur */
+        margin: 20px 0; /* Ajoute de l'espace autour du bouton */
+    }
 
     footer {
-        flex-direction: column; /* Change l'orientation en colonne sur les écrans plus petits */
-        height: auto; /* Permet au footer de s'ajuster en hauteur */
-        padding: 10px 0; /* Ajoute un peu de padding */
+        flex-direction: column; /* Aligne le contenu du footer verticalement */
+        height: auto; /* Ajuste la hauteur */
+        padding: 10px; /* Ajoute du padding */
     }
 
-    .footer-links {
-        gap: 10px; /* Réduit l'espacement entre les icônes */
-        flex-direction: row; /* Changez ceci si vous souhaitez afficher en colonne */
-        flex-wrap: wrap; /* Permet à l'alignement de se faire en plusieurs lignes si besoin */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Empile les cartes de projet verticalement */
     }
-}   
 
+    .project-card {
+        padding: 30px; /* Réduit le padding interne */
+    }
+
+    /* Réduire la taille de la police dans les cartes */
+    .project-card h3 {
+        font-size: 1.2rem; /* Ajuste la taille de la police */
+    }
+
+    /* Pour les icônes du footer */
+    .footer-icon {
+        width: 25px; /* Ajuste la taille des icônes pour les petits écrans */
+        height: 25px;
+    }
+}
