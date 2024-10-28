@@ -349,6 +349,7 @@ input[type="submit"]:hover {
     top: -7px;
     left:-50px;
     padding-top: 10px;
+    padding-bottom: 100px;
 }
 
 
@@ -402,7 +403,7 @@ border: 1px solid rgba(255, 255, 255, 1); /* Couleur bleu LinkedIn */
 }
 
 .download-btn:hover {
-    background-color: #005582; /* Couleur bleu foncé au survol */
+    background-color: #b9bcbe; /* Couleur bleu foncé au survol */
 }
 
 
@@ -495,6 +496,18 @@ a{
     text-decoration: none;
     color: inherit;
 }
+
+
+#hamburger{
+    display: none;
+
+} 
+
+
+.off-screen-menu{
+    display: none;
+}
+
 
 /*---------Media Queries--------*/
 @media (max-width: 768px) {
@@ -716,36 +729,83 @@ a{
     .project-card h3 {
         font-size: 1.2em; /* Réduit la taille de la police des titres */
     }
-
-    .menu-toggle {
-        display: block; /* Afficher le bouton hamburger */
+    #hamburger {
+        display: flex;
+        padding: 1rem;
     }
 
+    /* Cacher le menu principal en haut de page */
     .nav-top-right {
-        display: none; /* Cacher le menu de navigation */
-        flex-direction: column; /* Empiler les éléments du menu */
-        width: 100%; /* Prendre toute la largeur */
-        position: absolute; /* Position absolue pour le dépliement */
-        top: 60px; /* Ajuster en fonction de votre en-tête */
-        left: 0;
-        background-color: white; /* Couleur de fond du menu */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le menu */
+        display: none;
     }
 
-    .nav-top-right.active {
-        display: flex; /* Afficher le menu lorsque actif */
+    /* Styles pour le menu off-screen */
+    .off-screen-menu {
+        background-color: rgb(34, 37, 49);
+        height: 100vh;
+        width: 100%;
+        max-width: 450px;
+        position: fixed;
+        top: 0;
+        right: -450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 2rem;
+        transition: 0.3s ease;
+    }
+    .off-screen-menu.active {
+        right: 0;
     }
 
-    .nav-top-right ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none; /* Enlever les puces des éléments de liste */
-    }
 
-    .nav-top-right li {
-        padding: 10px; /* Espacement entre les éléments */
-        text-align: center; /* Centrer le texte */
-    }
+/* Styles pour le bouton hamburger */
+.ham-menu {
+    height: 50px;
+    width: 40px;
+    margin-left: auto;
+    position: relative;
 }
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #6F86FF;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease;
+}
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+.ham-menu.active span {
+    background-color: white;
+}
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+      
+}
+
+
+
 
 

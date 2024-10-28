@@ -163,8 +163,13 @@ function validateForm(event) {
     event.target.submit();
 }
 
-// Script pour gérer le menu hamburger
-document.getElementById("menu-toggle").addEventListener("click", function() {
-    var menu = document.getElementById("menu");
-    menu.classList.toggle("active"); // Toggle la classe active
+// Sélection des éléments du menu hamburger
+const hamMenu = document.querySelector(".ham-menu");
+const offScreenMenu = document.querySelector(".off-screen-menu");
+
+// Activer/désactiver le menu off-screen
+hamMenu.addEventListener("click", () => {
+    hamMenu.classList.toggle("active");
+    offScreenMenu.classList.toggle("active");
 });
+
