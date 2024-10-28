@@ -109,6 +109,7 @@ h2 {
     top: 10px;
     right: 20px;
     margin: 10px;
+    display: flex;
 }
 
 .nav-top-right ul {
@@ -134,6 +135,28 @@ h2 {
 
 #menu a:hover {
     color: gray; /* Change la couleur du texte en gris au survol */
+}
+
+
+/* Masquer le menu par défaut sur mobile */
+.nav-menu {
+    display: none; /* Masquer le menu par défaut */
+    flex-direction: column; /* Empiler les éléments verticalement */
+    position: absolute; /* Position absolue pour le menu */
+    top: 100%; /* Sous le header */
+    right: 0; /* Aligner à droite */
+    background-color: white; /* Fond blanc pour le menu */
+    width: 100%; /* Prendre toute la largeur */
+    z-index: 1000; /* S'assurer qu'il est au-dessus des autres éléments */
+    padding: 20px 0; /* Padding pour l'espacement interne */
+}
+
+.menu-toggle {
+    display: none; /* Masquer le bouton par défaut */
+    font-size: 30px; /* Taille du bouton hamburger */
+    background: transparent; /* Fond transparent */
+    border: none; /* Pas de bordure */
+    cursor: pointer; /* Curseur pointer */
 }
 
 
@@ -452,7 +475,6 @@ hr {
     opacity: 0; /* Fait disparaître le texte h3 lors du hover */
 }
 
-
 #Projet1{
         position: relative;
         background-image: url('../Images/fond_projet1.png'); /* Remplacez par le chemin de votre image */
@@ -475,8 +497,6 @@ a{
 }
 
 /*---------Media Queries--------*/
-
-/*---------Media Queries--------*/
 @media (max-width: 768px) {
 
     html, body {
@@ -488,7 +508,9 @@ a{
         background-repeat: no-repeat;
            
     }   
-    
+    html{
+        height: 100%;
+    }
 
     body {
         flex-direction: column; /* Garde la direction en colonne */
@@ -556,6 +578,7 @@ a{
 
     #menu {
         right: 20px; /* Ajuste la position du menu sur mobile */
+        display: none;
     }
 
     .nav-top-right {
@@ -669,10 +692,11 @@ a{
 
     .download-btn {
         padding: 8px 12px; /* Réduit le padding pour un meilleur ajustement */
-        top: 180px; /* Ajuste la position */
+        top:400px; /* Ajuste la position */
         left: 0; /* Centre le bouton sur l'écran */
         margin: 0 auto; /* Centre horizontalement */
         display: block; /* Affiche le bouton comme un bloc pour le centrer */
+
     }
 
     .projects-grid {
@@ -692,5 +716,36 @@ a{
     .project-card h3 {
         font-size: 1.2em; /* Réduit la taille de la police des titres */
     }
+
+    .menu-toggle {
+        display: block; /* Afficher le bouton hamburger */
+    }
+
+    .nav-top-right {
+        display: none; /* Cacher le menu de navigation */
+        flex-direction: column; /* Empiler les éléments du menu */
+        width: 100%; /* Prendre toute la largeur */
+        position: absolute; /* Position absolue pour le dépliement */
+        top: 60px; /* Ajuster en fonction de votre en-tête */
+        left: 0;
+        background-color: white; /* Couleur de fond du menu */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le menu */
+    }
+
+    .nav-top-right.active {
+        display: flex; /* Afficher le menu lorsque actif */
+    }
+
+    .nav-top-right ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none; /* Enlever les puces des éléments de liste */
+    }
+
+    .nav-top-right li {
+        padding: 10px; /* Espacement entre les éléments */
+        text-align: center; /* Centrer le texte */
+    }
 }
+
 

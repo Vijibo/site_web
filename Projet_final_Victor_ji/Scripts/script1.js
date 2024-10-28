@@ -57,7 +57,7 @@ function applyNightModeSettings() {
         item.style.color = newColor;
     });
 
-    let textForm = document.querySelectorAll('#nom1, #prenom1, #email1, #message1, #file1, h4,li,h5');
+    let textForm = document.querySelectorAll('#nom1, #prenom1, #email1, #message1, #file1,h4,li,h5');
     textForm.forEach(function(item) {
         item.style.color = newColor;
     });
@@ -163,8 +163,8 @@ function validateForm(event) {
     event.target.submit();
 }
 
-
-function toggleMenu() {
+// Script pour gérer le menu hamburger
+document.getElementById("menu-toggle").addEventListener("click", function() {
     var menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
+    menu.classList.toggle("active"); // Toggle la classe active
+});
