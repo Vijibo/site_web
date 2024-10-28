@@ -1,0 +1,504 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    transition: background-image 0.3s ease-in-out; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../Images/fond_jour.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 200px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.div1{
+    display: flex; align-items: flex-start;
+}
+.logo {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.container {
+    position: relative;
+    top: -30px;
+    left: 450px;
+    right: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 60px;
+}
+
+/*------Yeux-------- */
+.eyeBall {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top:-11px;
+    background-color: transparent;
+    border: 5px solid #333;
+    border-radius: 50%; 
+    overflow: hidden;
+    cursor: pointer; 
+}
+
+.iris {
+    position: absolute;
+    width: 20px; 
+    height: 20px; 
+    background-color: #333;
+    border-radius: 50%; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+
+/*------------------*/
+header {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    height: 300px; 
+    text-align: center; 
+}
+h1 {
+    font-size: 70px;
+    font-family: cursive,Arial, Helvetica, sans-serif;;
+    color: #333; 
+    margin: 20px 0 10px 0; 
+}
+
+h2 {
+    font-size: 24px;
+    font-family: cursive,Arial, Helvetica, sans-serif;;
+    color: #333; /* Couleur du texte */
+    margin: 0; /* Ajuster les marges */
+}
+
+
+/*------Menu----------*/
+#menu {
+    right: 100px;
+    font-weight: bold;
+    font-family: cursive,Arial, Helvetica, sans-serif;
+  
+}
+
+.nav-top-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    margin: 10px;
+}
+
+.nav-top-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-top-right ul li {
+    display: inline;
+    margin-left: 15px;
+}
+
+.nav-top-right ul li a {
+    text-decoration: none;
+    font-size: 23px;
+    color: #333;
+    transition: 0.3s ease-in-out;
+}
+.nav-top-right ul li a:hover {
+    font-size: 18px; /* Agrandit le texte au survol */
+    padding: 10px; /* Ajoute du padding pour agrandir le fond */
+}
+
+#menu a:hover {
+    color: gray; /* Change la couleur du texte en gris au survol */
+}
+
+
+/*footer*/
+
+footer {
+    display: flex;                  /* Utiliser flexbox */
+    justify-content: center;        /* Centrer horizontalement */
+    align-items: center;            /* Centrer verticalement */
+    position: fixed;                /* Fixer en bas de la page */
+    bottom: 0;                      /* Aligné en bas */
+    width: 100%;                    /* Prendre toute la largeur */
+    height: 40px;                   /* Hauteur du footer */
+    background-color: rgba(72, 68, 68, 0.8); /* Couleur de fond avec opacité */
+    color: white;                   /* Couleur du texte */
+    border-radius: 30px 30px 0 0;   /* Coins arrondis en haut */
+    box-shadow: 0px -2px 10px rgba(70, 68, 68, 0.5); /* Ombre portée */
+    text-align: center;             /* Centre le texte */
+    z-index: 1000;                  /* S'assurer que le footer soit au-dessus des autres éléments */
+    opacity: 0.9;                   /* Opacité pour rendre le footer transparent */
+}
+
+
+.footer-links {
+    display: flex; /* Utiliser flexbox */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    gap: 15px; /* Espacement entre les icônes */
+    padding-left: 10px;
+}
+
+.footer-icon {
+    width: 30px; /* Taille de l'icône */
+    height: 30px;
+    filter: invert(100%); /* Inverser les couleurs pour correspondre au fond sombre */
+    transition: transform 0.3s; /* Ajouter une transition pour un effet de survol */
+    border-radius: 100%;
+}
+
+.footer-icon:hover {
+    transform: scale(1.2); /* Agrandir l'icône au survol */
+}
+
+/*Carrousel d'images*/
+
+body {
+    font-family: cursive,Arial, Helvetica, sans-serif;;
+}
+
+.carousel {
+    position: relative;
+    max-width: 450px;
+    max-height: 450px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1 );
+}
+
+.carousel-inner {
+    display: flex;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.1s;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#logo_linkedin{
+    width: 40px;
+    height: 40px;
+}
+
+.sorbonne{
+    width: 250px;
+    height: 100px;
+    left: 30px;
+    display: flex;
+    position: relative;
+}
+
+
+body {
+    font-family: cursive,Arial, Helvetica, sans-serif;;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.container_form {
+    width: 90%; 
+    background: #ffffff3f;
+    position: relative;
+    padding: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    top: -7px;
+    left:-50px;
+    padding-top: 10px;
+}
+
+
+.body_form {
+    font-family: cursive,Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+}
+section {
+    width: 90%; 
+    background: #ffffff3f;
+    position: relative;
+    padding: 40px 60px; /* Ajoute un padding vertical et horizontal */
+    margin: 20px auto;  /* Centrage et marges verticales/horizontales */
+    top: 110px;
+    padding-bottom: 100px;
+    font-weight: 700;
+    font-size: larger;
+    font-family: cursive, Arial, Helvetica, sans-serif;
+    background: rgba(255, 255, 255, 0.205);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+
+}
+
+.download-btn {
+    padding: 10px 15px; /* Ajustez le padding si nécessaire */
+    background: rgba(255, 255, 255, 0.52);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 1); /* Couleur bleu LinkedIn */
+    color: rgb(5, 4, 4); /* Couleur du texte */
+    text-decoration: none; /* Pas de soulignement */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 14px; /* Taille de police réduite */
+    transition: background-color 0.3s; /* Transition pour le survol */
+    position: relative;
+    top: 235px;
+    left:310px;
+}
+
+.download-btn:hover {
+    background-color: #005582; /* Couleur bleu foncé au survol */
+}
+
+
+hr {
+    border: 2px solid #ccc;
+    margin: 20px 0;
+  }
+
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Largeur minimale augmentée */
+    gap: 30px; /* Augmentation de l'espacement entre les cartes */
+    padding: 20px;
+    position: relative;
+    margin-bottom: 200px; /* Espace en dessous du grid */
+}
+
+.project-card {
+    position: relative;
+    background-color: #f5f5f5;
+    padding: 70px; /* Augmentation de l’espace intérieur pour plus de hauteur */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    max-width: 350px; /* Utilisez max-width au lieu de width */
+    height: auto; /* Permet à la hauteur de s'ajuster automatiquement */
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Légèrement moins marqué pour éviter le débordement */
+    padding: 50px; /* Ajout d’espace interne pour un effet plus prononcé */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Ombre plus forte */
+}
+
+.project-overview {
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overview {
+    opacity: 0;
+}
+
+.project-details {
+    position: absolute;
+    top: 5%; /* Laisse 5% d'espace en haut */
+    left: 0;
+    right: 0;
+    height: 90%; /* Définit la hauteur à 90% de la carte */
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 15px;
+    transition: top 0 ease-in-out, opacity 0.5s ease;
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0;
+}
+
+.project-card:hover .project-details {
+    top: 0; /* Reste à 5% lors du survol */
+    opacity: 1; /* Affiche la bande noire lors du survol */
+}
+
+.project-card h3 {
+    text-align: center; /* Centre le texte des titres */
+    transition: opacity 0.3s ease; /* Ajoute une transition douce à l'opacité */
+}
+
+.project-card:hover h3 {
+    opacity: 0; /* Fait disparaître le texte h3 lors du hover */
+}
+
+
+#Projet1{
+        position: relative;
+        background-image: url('../Images/fond_projet1.png'); /* Remplacez par le chemin de votre image */
+        background-size: cover; /* L'image couvre toute la carte */
+        background-position: center; /* Centrer l'image */
+        background-color: rgba(245, 245, 245, 0.09); /* Couleur avec transparence */
+        padding: 70px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.4s ease, padding 0.4s ease;
+        max-width: 350px;
+        height: auto; 
+       
+           
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/*---------Media Queries--------*/
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Prend toute la largeur sur les petits écrans */
+    }
+
+    .carousel {
+        max-width: 100%; /* Adaptation de la largeur du carousel */
+    }
+
+    header {
+        height: auto; /* Ajuste la hauteur du header */
+    }
+
+    h1 {    
+        font-size: 4rem; /* Equivalent à 70px, ajustez selon votre design */
+    }
+    h2 {
+        font-size: 1.5rem; /* Equivalent à 24px */
+    }
+    
+
+    .footer-links {
+        flex-direction: column; /* Aligne les liens du footer verticalement */
+        gap: 10px; /* Réduit l'espacement entre les icônes */
+    }
+}   
+
