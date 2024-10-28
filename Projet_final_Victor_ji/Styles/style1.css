@@ -496,9 +496,16 @@ a{
     }
     
 
+    footer {
+        flex-direction: column; /* Change l'orientation en colonne sur les écrans plus petits */
+        height: auto; /* Permet au footer de s'ajuster en hauteur */
+        padding: 10px 0; /* Ajoute un peu de padding */
+    }
+
     .footer-links {
-        flex-direction: column; /* Aligne les liens du footer verticalement */
         gap: 10px; /* Réduit l'espacement entre les icônes */
+        flex-direction: row; /* Changez ceci si vous souhaitez afficher en colonne */
+        flex-wrap: wrap; /* Permet à l'alignement de se faire en plusieurs lignes si besoin */
     }
 }   
 
