@@ -163,13 +163,14 @@ function validateForm(event) {
     event.target.submit();
 }
 
-// Sélection des éléments du menu hamburger
-const hamMenu = document.querySelector(".ham-menu");
-const offScreenMenu = document.querySelector(".off-screen-menu");
 
-// Activer/désactiver le menu off-screen
-hamMenu.addEventListener("click", () => {
-    hamMenu.classList.toggle("active");
+
+// Sélection des éléments
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+
+// Ajout d'un événement au clic sur le hamburger
+hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active'); // Affiche ou masque le menu
     offScreenMenu.classList.toggle("active");
 });
-
