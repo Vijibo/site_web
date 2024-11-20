@@ -1,0 +1,192 @@
+/* Style général */
+.carousel {
+    position: relative;
+    max-width: 450px;
+    max-height: 450px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+}
+
+.carousel-inner {
+    display: flex;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+/* Section principale */
+#section_a_propos {
+    width: 90%;
+    background: #ffffff3f;
+    position: relative;
+    padding: 40px 60px;
+    margin: 20px auto;
+    top: 110px;
+    padding-bottom: 100px;
+    font-weight: 700;
+    font-size: larger;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: rgba(255, 255, 255, 0.205);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+}
+
+/* Ajustements pour les écrans moyens (tablettes) */
+@media (max-width: 768px) {
+    #section_a_propos {
+        padding: 20px 30px;
+        font-size: medium;
+        top: 50px;
+    }
+
+    .carousel {
+        max-width: 350px;
+        max-height: 350px;
+    }
+
+    .carousel-item img {
+        height: 250px;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Ajustements pour les petits écrans (mobiles) */
+@media (max-width: 480px) {
+    #section_a_propos {
+        padding: 15px 20px;
+        font-size: small;
+    }
+
+    .carousel {
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .carousel-item img {
+        height: 200px;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
+
+/* Boutons pour le carousel */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Logos */
+#logo_linkedin {
+    width: 40px;
+    height: 40px;
+}
+
+.sorbonne {
+    width: 250px;
+    height: 100px;
+    left: 30px;
+    display: flex;
+    position: relative;
+}
+
+/*adaptation des logos */
+@media (max-width: 768px) {
+    .sorbonne {
+        width: 200px;
+        height: 80px;
+    }
+
+    #logo_linkedin {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sorbonne {
+        width: 150px;
+        height: 60px;
+    }
+
+    #logo_linkedin {
+        width: 25px;
+        height: 25px;
+    }
+}
