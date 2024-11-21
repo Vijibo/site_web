@@ -59,14 +59,23 @@
 
 
 header img {
-    top: 70px;
-    position: relative;
-    max-width: 100%; 
+    max-width: 100px; 
+    max-height: 100px;
+    width: 100%;
     height: auto; 
     border-radius: 50%; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    margin: 10px auto; 
+    margin: 0 auto;
     display: block;
-    width: 100px;
-    height: 100px;
+}
+
+/* Styles spécifiques pour les petits écrans */
+@media (max-width: 768px) {
+    header img {
+        max-width: 80px; 
+        max-height: 80px;
+        width: 80px; 
+        height: 80px;
+        margin-top: 10px;
+    }
 }
