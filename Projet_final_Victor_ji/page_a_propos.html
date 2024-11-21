@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Victor Ji, étudiant en développement web, présentant ses projets, compétences, et informations de contact.">
+    <title>Victor Ji</title>
+    <link rel="icon" type="image/jpg" href="Images/Logo.png" class="favicon">
+    <link rel="stylesheet" href="Styles/style_a_propos.css">
+    <link rel="stylesheet" href="Styles/style_globaux.css">
+
+</head>
+<body>
+    <header>
+        <a href="page_d'accueil.html" class="logo">
+            <img src="Images/Logo.png" alt="Logo" class="logo">
+        </a>
+        <div class="off-screen-menu">
+            <ul>
+                <li><a href="page_d'accueil.html">Accueil</a></li>
+                <li><a href="page_projet.html">Projet</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="page_a_propos.html">À propos</a></li>
+            </ul>
+        </div>
+
+        <nav>
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+      
+
+        <nav class="nav-top-right" id="menu">
+            <ul>
+                <li><a href="page_d'accueil.html">Accueil</a></li>
+                <li><a href="page_projet.html">Projet</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="page_a_propos.html">À propos</a></li>
+            </ul>
+        </nav>
+        
+        <div class="container"> <!--Night mode-->
+            <div class="eyeBall" id="night_mode">
+                <div class="iris"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="section_a_propos">
+            <img src="Images/Logo_of_Sorbonne_University.svg.png" class="sorbonne"><br><br>
+            <div class="div1">
+                <div>
+                    <h2><u>Qui suis-je ?</u></h2>
+                    <p>Actuellement étudiant à Sorbonne Université,<br>
+                        curieux et motivé par les nouvelles technologies,
+                        <br>je suis constamment à la recherche de défis stimulants.
+                        <br>Avec de solides compétences en programmation et en développement web,
+                        <br>je suis ouvert aux opportunités de stage pour enrichir mes connaissances.
+                    </p>
+                </div>
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="Images/photo1.jpg" alt="Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Images/photo2.jpg" alt="Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Images/photo3.jpg" alt="Image 3">
+                        </div>
+                    </div>
+                    <a class="carousel-prev" onclick="prevSlide()">&#10094;</a>
+                    <a class="carousel-next" onclick="nextSlide()">&#10095;</a>
+                </div>
+            </div>
+            <br><br>
+            <hr>
+            <br >
+            <h2><u>Mes compétences en programmations</u></h2>
+            <ul>
+                <li><img src="Images/python_logo.png" alt="Python" style="width:20px; height:20px;"> Python</li>
+                <li><img src="Images/c_logo.png" alt="C" style="width:20px; height:20px;"> C</li>
+                <li><img src="Images/java_logo.png" alt="Java" style="width:20px; height:20px;"> Java</li>
+                <li><img src="Images/ocaml_logo.png" alt="OCaml" style="width:20px; height:20px;"> OCaml</li>
+                <li><img src="Images/html5_logo.png" alt="HTML5" style="width:20px; height:20px;"> HTML5 (HyperText Markup Language 5)</li>
+                <li><img src="Images/css_logo.png" alt="CSS"     style="width:20px; height:20px;"> CSS (Cascading Style Sheets)</li>
+                <li><img src="Images/php_logo.png" alt="PHP" style="width:20px; height:20px;"> PHP (Hypertext Preprocessor)</li>
+                <li><img src="Images/javascript_logo.png" alt="JavaScript" style="width:20px; height:20px;"> JavaScript</li>
+                <li><img src="Images/bootstrap_logo.png" alt="Bootstrap" style="width:20px; height:20px;"> Bootstrap</li>
+                <li><img src="Images/mysql_logo.png " alt="MySQL" style="width:20px; height:20px;"> MySQL (Structured Query Language)</li>
+                <li><img src="Images/shell_logo.png" alt="Shell" style="width:20px; height:20px;"> Shell Bash (Bourne-Again shell)</li>
+            </ul>
+            <h2><u>Les logiciels</u></h2>
+            <ul>
+                <li>Virtual Studio Code</li>
+                <li>Jupyter NoteBook</li>
+                <li>Android Studio</li>
+                <li>Deeds</li>
+                <li>...</li>
+            </ul>
+            <hr>
+            <br>
+            <h2><u>Mes Expériences</u></h2>
+            <p>...</p>
+            <hr>
+            <br>
+            <h2><u>Ma formation</u></h2>
+            <p>2023-2026 : Licence DANT (Développeur d’Applications Nouvelles Technologies)</p>
+            <h2>Les unités d'enseignements que j'ai suivi:</h2>
+            <h4>L1 :</h4>
+            <li>LU1INMA1 - Sciences des Données - S1-23</li>
+            <li>LU1IN011 - Elements de programmation 1 (Python) - S1-23</li>
+            <li>LU1MA001 - Mathématique pour les Sciences 1 - S1-23</li>
+            <li>LU1EE002 - Fondement de l'électronique 2 - S2-23</li>
+            <li>LU1IN002 - Elements de programmation 2 (C) - S2-23</li>
+            <li>LU1MA002 - Mathématique pour les Sciences 2 - S2-23</li>
+            <li>LU1SXARE - Atelier de Recherche Encadrée - S2-23</li>
+            <li>LU1LVAN2 - Anglais - S2-23</li>
+            <h4>L2 :</h4>
+            <li>LU2IN002 - Introduction à la Programmation objet - S1-24</li>
+            <li>LU2IN005 - Mathématiques discrètes - S1-24</li>
+            <li>LU2IN020 - ISS - Initiation au système et aux Shells - S1-24</li>
+            <li>LU2IN019 - Programmation fonctionnelle - S1-24</li>
+            <li>LU2IN018 - C avancé - S1-24</li>
+            <li>LU2IN104 - Web et développement web - S1-24</li>
+            <li>LO3IN404 - Programmation compétitive - S1-24</li>
+            <br>
+            <hr>
+            <br>
+            <h2><u>Crédits et Mentions Légales</u></h2>
+            <p>Les fonds d'écran du site sont généré par l'intelligence artificielle </p>
+            <p>Crédits des photos : Victor Ji </p>
+            <ul><p>Détails de la caméra :</p> 
+            <li>Appareil photo (dorsal)</li>
+            <li>Capteur 1 : 64 Mp</li>
+            <li>Capteur 2 : 8 Mp</li>
+            <li>Capteur 3 : 2 Mp</li>
+            <li>Capteur 4 : 2 Mp</li>
+            <li>Nombre de capteurs (arrière et avant) : 4</li>
+            <li>Définition enregistrement vidéo : 4K </li>
+            <li>Stabilisateur d'image : Électronique</li>
+            <li>Taille des photosites
+                0,8 µm</li>
+            <li>Ouverture objectif photo
+                f/1.9</li>
+            </ul>
+            <p>Style : Glassmorphism</p>
+            <p>Police d'écriture :'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            </p>
+            <p>Les icones et autres technologies présentés sur ce site sont la propriété de leurs détenteurs 
+                respectifs. Ils sont utilisés ici uniquement à des fin d'identification et d'illustration. 
+                Tous droits sont réservés aux propriétaires légitimes</p>
+                <h5><i>Dernière mise à jour : 27/10/2024</i></h5>
+
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Victor Ji. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/victor-ji-b35a94304" target="_blank">
+                <img src="Images/logo_linkedin.png" alt="LinkedIn" class="footer-icon" id="logo_linkedin">
+            </a>
+            <a href="mailto:victor.Ji@etu.sorbonne-universite.fr">
+                <img src="Images/logo_mail.png" alt="Email" class="footer-icon">
+            </a>
+        </div>
+    </footer>
+    <!-- Ajoute ceci juste avant la balise de fermeture </body> -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+    <script src="Scripts/script_carousel.js"></script>
+    <script src="Scripts/script_global.js"></script>
+</body>
+</html>
