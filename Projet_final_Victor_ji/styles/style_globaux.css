@@ -110,6 +110,10 @@ h2 {
     z-index: 100; 
 }
 
+.off-screen-menu ul{    
+    padding-left:10px ;
+}
+
 /* Rubriques */
 .off-screen-menu li {
     margin: 15px 0; 
