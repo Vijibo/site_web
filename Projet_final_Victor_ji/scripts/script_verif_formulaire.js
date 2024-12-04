@@ -7,10 +7,6 @@ function validateForm(event) {
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-    if (!nom || !prenom || !email || !message) {
-        alert('Veuillez remplir tous les champs.');
-        return false;
-    }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
@@ -18,7 +14,8 @@ function validateForm(event) {
         return false;
     }
 
-    alert('Formulaire envoyé avec succès!');
+    alert(`Formulaire envoyé avec succès !\n\nInformations saisies :\nNom : ${nom}\nPrénom : ${prenom}\nEmail : ${email}\nMessage : ${message}`);
+
     event.target.submit();
 }
 
