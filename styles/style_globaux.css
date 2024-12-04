@@ -36,7 +36,12 @@ header {
     align-items: center; 
     text-align: center; 
 }
-
+@media (max-width:768px) {
+    header{
+        margin-top: 10px;
+    }
+    
+}
 h1 {
     font-size: 70px;
     color: #333; 
