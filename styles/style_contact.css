@@ -88,3 +88,10 @@ form .button-group input[type="reset"] {
 form .button-group input[type="reset"]:hover {
     background-color: #a71d2a;
 }
+
+@media (max-width:768px) {
+    header{
+        top: 20px;
+    }
+    
+}
