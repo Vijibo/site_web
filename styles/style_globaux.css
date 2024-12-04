@@ -1,0 +1,367 @@
+/*Styles globaux*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    transition: background-image 0.3s ease-in-out; 
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/fond_jour.jpg');
+    background-size: cover; 
+    background-position: fixed ; 
+    background-repeat: no-repeat;
+    background-color: #f9f9f9;
+    position:relative;
+    min-height: 100vh;
+    left: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+/*Style du Header*/
+header {
+    position: relative;
+    margin-top: 0px;
+    width: 100%;
+    height: 300px; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center; 
+}
+
+h1 {
+    font-size: 70px;
+    color: #333; 
+    margin: 20px 0 10px 0; 
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.logo {
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+/*------Menu----------*/
+#menu {
+    top: -20px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    font-weight: bold;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    z-index: 299; 
+    padding: 10px 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+.off-screen-menu{
+    display: none;
+}
+@media(max-width:768px){
+
+    #menu {
+        display: none;
+    }
+
+    
+ /* off-screen-menu */
+.off-screen-menu {
+    background-color: rgb(32, 34, 43);
+    color: white;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    font-size: 3rem;
+    list-style: none;
+    text-decoration: none; 
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(246, 242, 242, 0.794);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 100; 
+}
+
+/* Rubriques */
+.off-screen-menu li {
+    margin: 15px 0; 
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600; 
+    letter-spacing: 1px; 
+    transition: color 0.3s ease;
+    text-align: center; 
+    list-style: none;
+}
+
+.off-screen-menu li a:hover {
+    color: rgb(127, 160, 169); 
+    transform: scale(1.05); 
+    font-size: 18px; 
+    padding: 10px; 
+    transition: 0.3s ease-in-out;
+
+}
+
+.off-screen-menu ul{
+    padding-left:10px ;
+}
+
+.off-screen-menu a {
+    color: black; 
+    text-decoration: none; 
+    font-size: 30px; 
+    text-align: center; 
+}
+
+
+.off-screen-menu.active {
+    right: 0; 
+    z-index: 2000;
+}
+
+/* nav */
+nav {
+    padding: 1rem;
+    display: flex;
+}
+
+
+/* ham menu */
+.ham-menu {
+    height: 50px; 
+    width: 40px; 
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    z-index: 3000; 
+    cursor: pointer;
+    border-radius: 5px; 
+}
+
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #262937;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+    z-index: 2000;
+}
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+.ham-menu.active span {
+    background-color: white;
+}
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+}
+/* Les autres styles */
+.nav-top-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    margin: 10px;
+    display: flex;
+}
+
+.nav-top-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-top-right ul li {
+    display: inline;
+    margin-left: 15px;
+}
+
+.nav-top-right ul li a {
+    text-decoration: none;
+    font-size: 23px;
+    color: #333;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-top-right ul li a:hover {
+    font-size: 18px; 
+    padding: 10px; 
+}
+
+#menu a:hover {
+    color: gray; 
+}
+
+
+/*Yeux qui active le mode sombre*/
+.container {    
+    position: fixed; 
+    top: 20px; 
+    right: 10px; 
+    max-width: 60px; 
+    z-index: 110; 
+}
+
+.eyeBall {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: -11px;
+    background-color: transparent;
+    border: 5px solid #333;
+    border-radius: 50%; 
+    overflow: hidden;
+    cursor: pointer; 
+}
+
+.iris {
+    position: absolute;
+    width: 20px; 
+    height: 20px; 
+    background-color: #333;
+    border-radius: 50%; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+/*body */
+
+
+
+main {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+/*Footer*/
+footer {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    height: 40px; 
+    background-color: rgba(72, 68, 68, 0.8);
+    color: white; 
+    border-radius: 30px 30px 0 0; 
+    box-shadow: 0px -2px 10px rgba(70, 68, 68, 0.5);
+    text-align: center; 
+    z-index: 1000; 
+    opacity: 0.9;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-left: 10px;
+}
+
+.footer-icon {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+    transition: transform 0.3s;
+    border-radius: 100%;
+}
+
+.footer-icon:hover {
+    transform: scale(1.2);
+}
+
+#logo_linkedin {
+    width: 40px;
+    height: 40px;
+}
+
+.sorbonne {
+    width: 250px;
+    height: 100px;
+    left: 30px;
+    display: flex;
+    position: relative;
+}
+
+/*adaptation des logos */
+@media (max-width: 768px) {
+    .sorbonne {
+        width: 200px;
+        height: 80px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .sorbonne {
+        width: 150px;
+        height: 60px;
+    }
+
+
+}
+
+@media(max-width:768px){
+    .container{
+        position: absolute; 
+        right: 50%; 
+        transform: translateX(50%)
+    }
+
+    
+}
+
+
+::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+}
