@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de la Vie de Conway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 8px 16px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #3367d6;
+        }
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .stat {
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        .stat-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        .game-container {
+            position: relative;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        canvas {
+            display: block;
+        }
+        .options {
+            margin-top: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .option-group {
+            margin-bottom: 15px;
+        }
+        .option-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .color-options, .pattern-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .color-option, .pattern-option {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .color-option:hover, .pattern-option:hover {
+            background-color: #f0f0f0;
+        }
+        .color-option.active, .pattern-option.active {
+            background-color: #e6f2ff;
+            border-color: #4285f4;
+        }
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="range"] {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jeu de la Vie de Conway (<a href="https://youtu.be/eMn43As24Bo?si=n0ebQNQF_PqmavI9" style="text-decoration: none;" title="lien vers la vidéo d'EGO">lien</a>)</h1>
+    
+    <div class="controls">
+        <button id="playPauseBtn" class="btn">Pause</button>
+        <button id="clearBtn" class="btn">Réinitialiser</button>
+    </div>
+    
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-label">Génération</div>
+            <div id="generationCount" class="stat-value">0</div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Population</div>
+            <div id="populationCount" class="stat-value">0</div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Temps écoulé</div>
+            <div id="elapsedTime" class="stat-value">00:00</div>
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas" width="600" height="400"></canvas>
+    </div>
+    
+    <div class="options">
+        <div class="option-group">
+            <div class="option-title">Vitesse</div>
+            <div class="speed-control">
+                <span>Lente</span>
+                <input type="range" id="speedSlider" min="1" max="20" value="10">
+                <span>Rapide</span>
+            </div>
+        </div>
+        
+        <div class="option-group">
+            <div class="option-title">Motifs</div>
+            <div class="pattern-options">
+                <div class="pattern-option active" data-pattern="random">Aléatoire</div>
+                <div class="pattern-option" data-pattern="glider">Planeur</div>
+                <div class="pattern-option" data-pattern="gosperGliderGun">Canon à planeurs</div>
+                <div class="pattern-option" data-pattern="pulsar">Pulsar</div>
+                <div class="pattern-option" data-pattern="clear">Effacer</div>
+            </div>
+        </div>
+    </div>
+    <h3><a href="https://fr.wikipedia.org/wiki/Jeu_de_la_vie" style="text-decoration:solid;" title="lien vers la page wikipedia du jeu">Extrait de Wikipédia</a> :</h3>
+    <p>Le jeu de la Vie est un « jeu à zéro joueur », puisqu'il ne nécessite aucune intervention du joueur lors de son déroulement. Il s’agit d’un automate cellulaire, un modèle où chaque état conduit mécaniquement à l’état suivant à partir de règles préétablies.<hr>
+        Le jeu se déroule sur une grille à deux dimensions, théoriquement infinie, dont les cases appelées « cellules », par analogie avec les cellules vivantes peuvent prendre deux états distincts : « vivante » ou « morte ». <hr>   
+        Une cellule possède huit voisines, qui sont les cellules adjacentes horizontalement, verticalement et diagonalement.
+        
+        À chaque itération, l'état d’une cellule est entièrement déterminé par l’état de ses huit cellules voisines, selon les règles suivantes :<hr>
+        
+        - Une cellule morte possédant exactement trois cellules voisines vivantes devient vivante (elle naît).<hr>
+        - Une cellule vivante ne possédant pas exactement deux ou trois cellules voisines vivantes meurt.</p>
+    <script>
+        // Configuration du jeu
+        const config = {
+            cellSize: 10,
+            updateInterval: 100, // milliseconds
+            gridColor: "#ddd",
+            cellColor: "#000",
+            playing: true
+        };
+
+        // Éléments DOM
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const clearBtn = document.getElementById("clearBtn");
+        const generationCountEl = document.getElementById("generationCount");
+        const populationCountEl = document.getElementById("populationCount");
+        const elapsedTimeEl = document.getElementById("elapsedTime");
+        const speedSlider = document.getElementById("speedSlider");
+        const patternOptions = document.querySelectorAll(".pattern-option");
+
+        // Calculer les dimensions de la grille
+        const gridWidth = Math.floor(canvas.width / config.cellSize);
+        const gridHeight = Math.floor(canvas.height / config.cellSize);
+
+        // Initialisation des variables
+        let grid = createEmptyGrid();
+        let intervalId = null;
+        let generation = 0;
+        let startTime = new Date();
+        let elapsedSeconds = 0;
+
+        // Créer une grille vide
+        function createEmptyGrid() {
+            return Array(gridHeight).fill().map(() => Array(gridWidth).fill(0));
+        }
+
+        // Dessiner la grille
+        function drawGrid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Dessiner les lignes de la grille
+            ctx.strokeStyle = config.gridColor;
+            ctx.lineWidth = 0.5;
+            
+            for (let x = 0; x <= gridWidth; x++) {
+                ctx.beginPath();
+                ctx.moveTo(x * config.cellSize, 0);
+                ctx.lineTo(x * config.cellSize, canvas.height);
+                ctx.stroke();
+            }
+            
+            for (let y = 0; y <= gridHeight; y++) {
+                ctx.beginPath();
+                ctx.moveTo(0, y * config.cellSize);
+                ctx.lineTo(canvas.width, y * config.cellSize);
+                ctx.stroke();
+            }
+            
+            // Dessiner les cellules vivantes
+            ctx.fillStyle = config.cellColor;
+            let population = 0;
+            
+            for (let y = 0; y < gridHeight; y++) {
+                for (let x = 0; x < gridWidth; x++) {
+                    if (grid[y][x] === 1) {
+                        ctx.fillRect(
+                            x * config.cellSize, 
+                            y * config.cellSize, 
+                            config.cellSize, 
+                            config.cellSize
+                        );
+                        population++;
+                    }
+                }
+            }
+            
+            populationCountEl.textContent = population;
+        }
+
+        // Mettre à jour la grille selon les règles du jeu
+        function updateGrid() {
+            const newGrid = createEmptyGrid();
+            
+            for (let y = 0; y < gridHeight; y++) {
+                for (let x = 0; x < gridWidth; x++) {
+                    const neighbors = countNeighbors(x, y);
+                    
+                    if (grid[y][x] === 1) {
+                        // Cellule vivante
+                        if (neighbors === 2 || neighbors === 3) {
+                            newGrid[y][x] = 1; // Survie
+                        }
+                    } else {
+                        // Cellule morte
+                        if (neighbors === 3) {
+                            newGrid[y][x] = 1; // Naissance
+                        }
+                    }
+                }
+            }
+            
+            grid = newGrid;
+            generation++;
+            generationCountEl.textContent = generation;
+            updateElapsedTime();
+        }
+
+        // Compter les voisins vivants d'une cellule
+        function countNeighbors(x, y) {
+            let count = 0;
+            
+            for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                    if (dx === 0 && dy === 0) continue;
+                    
+                    const nx = (x + dx + gridWidth) % gridWidth;
+                    const ny = (y + dy + gridHeight) % gridHeight;
+                    
+                    if (grid[ny][nx] === 1) {
+                        count++;
+                    }
+                }
+            }
+            
+            return count;
+        }
+
+        // Mettre à jour le temps écoulé
+        function updateElapsedTime() {
+            const now = new Date();
+            elapsedSeconds = Math.floor((now - startTime) / 1000);
+            const minutes = Math.floor(elapsedSeconds / 60);
+            const seconds = elapsedSeconds % 60;
+            elapsedTimeEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Démarrer le jeu
+        function startGame() {
+            if (intervalId) clearInterval(intervalId);
+            config.playing = true;
+            playPauseBtn.textContent = "Pause";
+            intervalId = setInterval(() => {
+                updateGrid();
+                drawGrid();
+            }, config.updateInterval);
+        }
+
+        // Arrêter le jeu
+        function stopGame() {
+            config.playing = false;
+            playPauseBtn.textContent = "Reprendre";
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        // Réinitialiser le jeu
+        function resetGame() {
+            stopGame();
+            grid = createEmptyGrid();
+            generation = 0;
+            generationCountEl.textContent = "0";
+            startTime = new Date();
+            elapsedSeconds = 0;
+            updateElapsedTime();
+            drawGrid();
+        }
+
+        // Motifs prédéfinis
+        const patterns = {
+            random: function() {
+                for (let y = 0; y < gridHeight; y++) {
+                    for (let x = 0; x < gridWidth; x++) {
+                        grid[y][x] = Math.random() > 0.8 ? 1 : 0;
+                    }
+                }
+            },
+            clear: function() {
+                grid = createEmptyGrid();
+            },
+            glider: function() {
+                grid = createEmptyGrid();
+                const centerX = Math.floor(gridWidth / 4);
+                const centerY = Math.floor(gridHeight / 4);
+                
+                // Planeur simple
+                grid[centerY][centerX+1] = 1;
+                grid[centerY+1][centerX+2] = 1;
+                grid[centerY+2][centerX] = 1;
+                grid[centerY+2][centerX+1] = 1;
+                grid[centerY+2][centerX+2] = 1;
+            },
+            gosperGliderGun: function() {
+                grid = createEmptyGrid();
+                const startX = 10;
+                const startY = 10;
+                
+                // Premier bloc
+                grid[startY][startX] = 1;
+                grid[startY][startX+1] = 1;
+                grid[startY+1][startX] = 1;
+                grid[startY+1][startX+1] = 1;
+                
+                // Canon à planeurs de Gosper (partie gauche)
+                grid[startY][startX+10] = 1;
+                grid[startY+1][startX+10] = 1;
+                grid[startY+2][startX+10] = 1;
+                grid[startY-1][startX+11] = 1;
+                grid[startY+3][startX+11] = 1;
+                grid[startY-2][startX+12] = 1;
+                grid[startY+4][startX+12] = 1;
+                grid[startY-2][startX+13] = 1;
+                grid[startY+4][startX+13] = 1;
+                grid[startY+1][startX+14] = 1;
+                grid[startY-1][startX+15] = 1;
+                grid[startY+3][startX+15] = 1;
+                grid[startY][startX+16] = 1;
+                grid[startY+1][startX+16] = 1;
+                grid[startY+2][startX+16] = 1;
+                grid[startY+1][startX+17] = 1;
+                
+                // Canon à planeurs de Gosper (partie droite)
+                grid[startY][startX+20] = 1;
+                grid[startY-1][startX+20] = 1;
+                grid[startY-2][startX+20] = 1;
+                grid[startY][startX+21] = 1;
+                grid[startY-1][startX+21] = 1;
+                grid[startY-2][startX+21] = 1;
+                grid[startY-3][startX+22] = 1;
+                grid[startY+1][startX+22] = 1;
+                grid[startY-3][startX+24] = 1;
+                grid[startY-4][startX+24] = 1;
+                grid[startY+1][startX+24] = 1;
+                grid[startY+2][startX+24] = 1;
+            },
+            pulsar: function() {
+                grid = createEmptyGrid();
+                const centerX = Math.floor(gridWidth / 2) - 6;
+                const centerY = Math.floor(gridHeight / 2) - 6;
+                
+                // Pulsar (période 3)
+                const coords = [
+                    [2, 4], [2, 5], [2, 6], [2, 10], [2, 11], [2, 12],
+                    [4, 2], [5, 2], [6, 2], [4, 7], [5, 7], [6, 7], [4, 9], [5, 9], [6, 9], [4, 14], [5, 14], [6, 14],
+                    [7, 4], [7, 5], [7, 6], [7, 10], [7, 11], [7, 12],
+                    [9, 4], [9, 5], [9, 6], [9, 10], [9, 11], [9, 12],
+                    [10, 2], [11, 2], [12, 2], [10, 7], [11, 7], [12, 7], [10, 9], [11, 9], [12, 9], [10, 14], [11, 14], [12, 14],
+                    [14, 4], [14, 5], [14, 6], [14, 10], [14, 11], [14, 12]
+                ];
+                
+                coords.forEach(([y, x]) => {
+                    grid[centerY + y][centerX + x] = 1;
+                });
+            }
+        };
+
+        // Gestionnaires d'événements
+        playPauseBtn.addEventListener("click", () => {
+            if (config.playing) {
+                stopGame();
+            } else {
+                startGame();
+            }
+        });
+
+        clearBtn.addEventListener("click", resetGame);
+
+        speedSlider.addEventListener("input", () => {
+            const wasPlaying = config.playing;
+            if (wasPlaying) stopGame();
+            
+            config.updateInterval = 500 / speedSlider.value;
+            
+            if (wasPlaying) startGame();
+        });
+
+        patternOptions.forEach(option => {
+            option.addEventListener("click", () => {
+                patternOptions.forEach(opt => opt.classList.remove("active"));
+                option.classList.add("active");
+                
+                const patternName = option.getAttribute("data-pattern");
+                const wasPlaying = config.playing;
+                
+                if (wasPlaying) stopGame();
+                
+                if (patterns[patternName]) {
+                    patterns[patternName]();
+                    drawGrid();
+                }
+                
+                // Ne redémarre pas automatiquement après avoir effacé
+                if (wasPlaying && patternName !== "clear") {
+                    startGame();
+                }
+            });
+        });
+
+        canvas.addEventListener("click", (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = Math.floor((event.clientX - rect.left) / config.cellSize);
+            const y = Math.floor((event.clientY - rect.top) / config.cellSize);
+            
+            if (x >= 0 && x < gridWidth && y >= 0 && y < gridHeight) {
+                grid[y][x] = grid[y][x] === 0 ? 1 : 0;
+                drawGrid();
+            }
+        });
+
+        // Initialisation
+        patterns.random();
+        drawGrid();
+        startGame();
+    </script>
+</body>
+</html>
