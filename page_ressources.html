@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ressources — Victor Ji" data-i18n-content="meta.resources">
+  <title>Victor Ji · Ressources</title>
+  <link rel="icon" type="image/png" href="images/Logo.png">
+  <link rel="stylesheet" href="styles/style_globaux.css">
+  <link rel="stylesheet" href="styles/style_ressources.css">
+</head>
+<body data-i18n-title="title.resources">
+
+  <header>
+    <a href="page_accueil.html" class="logo-link">
+      <img src="images/Logo.png" alt="Logo" class="logo">
+    </a>
+    <nav class="nav-top-right" id="menu">
+      <ul>
+        <li><a href="page_accueil.html" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="page_projet.html" data-i18n="nav.projects">Projet</a></li>
+        <li><a href="page_ressources.html" class="active" data-i18n="nav.resources">Ressources</a></li>
+        <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+        <li><a href="utile/CV_Victor_Ji.pdf" target="_blank" class="cv-link">CV</a></li>
+        <li><button class="lang-switch" data-lang-switch type="button">EN</button></li>
+      </ul>
+    </nav>
+    <button class="ham-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="eye-container">
+      <div class="eyeBall" id="night_mode"><div class="iris"></div></div>
+    </div>
+  </header>
+
+  <div class="fullscreen-menu" style="display:none;">
+    <button class="menu-close">✕</button>
+    <ul>
+      <li><a href="page_accueil.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="page_projet.html" data-i18n="nav.projects">Projet</a></li>
+      <li><a href="page_ressources.html" data-i18n="nav.resources">Ressources</a></li>
+      <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="utile/CV_Victor_Ji.pdf" target="_blank">CV</a></li>
+      <li><button class="lang-switch lang-switch-mobile" data-lang-switch type="button">EN</button></li>
+    </ul>
+    <div class="menu-accent-line"></div>
+  </div>
+
+  <main>
+    <div id="ressources-wrap">
+
+      <div class="ressources-header reveal">
+        <h1>Mes <span class="accent">Recommandations</span></h1>
+        <p>Un coin plus personnel : ce que j'écoute, regarde et lis en ce moment</p>
+      </div>
+
+      <section class="resource-section reveal">
+        <h2 data-i18n="resources.music.title">Musiques</h2>
+        <div class="resource-list">
+          <article class="resource-item">
+            <h3>Luidji - Téléfoot</h3>
+            <div class="music-player">
+              <button class="music-play" type="button" aria-label="Lire Luidji - Téléfoot">▶</button>
+              <div class="music-progress" role="progressbar" aria-label="Barre de lecture" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+              <div class="music-time"><span class="music-current">0:00</span> / <span class="music-duration">0:00</span></div>
+              <audio class="music-source" preload="metadata"><source src="audio/Luidji - Téléfoot.mp3" type="audio/mpeg"></audio>
+            </div>
+          </article>
+          <article class="resource-item">
+            <h3>Drake - Chicago Freestyle (feat. Giveon)</h3>
+            <div class="music-player">
+              <button class="music-play" type="button" aria-label="Lire Drake - Chicago Freestyle">▶</button>
+              <div class="music-progress" role="progressbar" aria-label="Barre de lecture" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+              <div class="music-time"><span class="music-current">0:00</span> / <span class="music-duration">0:00</span></div>
+              <audio class="music-source" preload="metadata"><source src="audio/Drake - Chicago Freestyle (feat. Giveon).mp3" type="audio/mpeg"></audio>
+            </div>
+          </article>
+          <article class="resource-item">
+            <h3>SZA - Ghost in the Machine ft. Phoebe Bridgers</h3>
+            <div class="music-player">
+              <button class="music-play" type="button" aria-label="Lire SZA - Ghost in the Machine">▶</button>
+              <div class="music-progress" role="progressbar" aria-label="Barre de lecture" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+              <div class="music-time"><span class="music-current">0:00</span> / <span class="music-duration">0:00</span></div>
+              <audio class="music-source" preload="metadata"><source src="audio/SZA - Ghost in the Machine ft. Phoebe Bridgers.mp3" type="audio/mpeg"></audio>
+            </div>
+          </article>
+          <article class="resource-item">
+            <h3>Billie Eilish - wildflower</h3>
+            <div class="music-player">
+              <button class="music-play" type="button" aria-label="Lire Billie Eilish - wildflower">▶</button>
+              <div class="music-progress" role="progressbar" aria-label="Barre de lecture" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+              <div class="music-time"><span class="music-current">0:00</span> / <span class="music-duration">0:00</span></div>
+              <audio class="music-source" preload="metadata"><source src="audio/Billie Eilish - wildflower.mp3" type="audio/mpeg"></audio>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <h5 data-i18n="footer.copy">© 2025 Victor Ji · Tous droits réservés</h5>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/victor-ji-b35a94304" target="_blank">
+        <img src="images/logo_linkedin.png" alt="LinkedIn" class="footer-icon" id="logo_linkedin">
+      </a>
+      <a href="mailto:victor.Ji@etu.sorbonne-universite.fr">
+        <img src="images/logo_mail.png" alt="Email" class="footer-icon">
+      </a>
+    </div>
+  </footer>
+
+  <script src="scripts/script_global.js"></script>
+</body>
+</html>

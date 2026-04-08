@@ -1,67 +1,139 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Victor Ji, étudiant en développement web, présentant ses projets, compétences, et informations de contact.">
-    <title>Victor Ji</title>
-    <link rel="icon" type="image/jpg" href="images/Logo.png" class="favicon">
-    <link rel="stylesheet" href="styles/style_globaux.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Victor Ji — Étudiant en informatique à Sorbonne Université" data-i18n-content="meta.home">
+  <title>Victor Ji</title>
+  <link rel="icon" type="image/png" href="images/Logo.png">
+  <link rel="stylesheet" href="styles/style_globaux.css">
+  <link rel="stylesheet" href="styles/style_accueil.css">
 </head>
-<body>
-    <header>
-        <a href="utile/CV_Victor_Ji.pdf" class="logo">
-            <img src="images/Logo.png" alt="Logo" class="logo">
-        </a>
-        <!-- Menu hamburger-->
-        <div class="off-screen-menu">
-            <ul>
-                <li><a href="page_accueil.html">Accueil</a></li>
-                <li><a href="page_projet.html">Projet</a></li>
-                <li><a href="page_contact.html">Contact</a></li>
-                <li><a href="page_a_propos.html">À propos</a></li>
-            </ul>
+<body data-i18n-title="title.home">
+
+  <!-- Curseurs injectés par JS -->
+
+  <header>
+    <a href="page_accueil.html" class="logo-link">
+      <img src="images/Logo.png" alt="Logo Victor Ji" class="logo">
+    </a>
+
+    <!-- Navbar desktop -->
+    <nav class="nav-top-right" id="menu">
+      <ul>
+        <li><a href="page_accueil.html" class="active" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="page_projet.html" data-i18n="nav.projects">Projet</a></li>
+        <li><a href="page_ressources.html" data-i18n="nav.resources">Ressources</a></li>
+        <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+        <li><a href="utile/CV_Victor_Ji.pdf" target="_blank" class="cv-link">CV</a></li>
+        <li><button class="lang-switch" data-lang-switch type="button">EN</button></li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger mobile -->
+    <button class="ham-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Œil mode nuit -->
+    <div class="eye-container">
+      <div class="eyeBall" id="night_mode">
+        <div class="iris"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu plein écran mobile -->
+  <div class="fullscreen-menu" style="display:none;">
+    <button class="menu-close" aria-label="Fermer">✕</button>
+    <ul>
+      <li><a href="page_accueil.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="page_projet.html" data-i18n="nav.projects">Projet</a></li>
+      <li><a href="page_ressources.html" data-i18n="nav.resources">Ressources</a></li>
+      <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="utile/CV_Victor_Ji.pdf" target="_blank">CV</a></li>
+      <li><button class="lang-switch lang-switch-mobile" data-lang-switch type="button">EN</button></li>
+    </ul>
+    <div class="menu-accent-line"></div>
+  </div>
+
+  <!-- ── INTRO ÉCRAN ── -->
+  <div id="intro-screen">
+    <div id="intro-content">
+      <div id="intro-typewriter"></div>
+      <div id="intro-cursor">|</div>
+    </div>
+  </div>
+
+  <!-- ── PAGE PRINCIPALE ── -->
+  <main id="main-content" style="opacity:0;">
+
+    <!-- Particules fond -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Hero section -->
+    <section id="hero">
+      <div id="hero-inner">
+
+        <div id="hero-tag" class="reveal" data-i18n="home.tag">Cherche une alternance · Sorbonne Université</div>
+
+        <h1 id="hero-name" class="reveal">
+          <span>Victor</span>
+          <span class="name-accent">Ji</span>
+        </h1>
+
+        <p id="hero-bio" class="reveal" data-i18n="home.bio">
+          En L3 à Sorbonne Université, passionné par le dev web et les algorithmes.
+        </p>
+
+        <div id="hero-buttons" class="reveal">
+          <a href="https://github.com/Vijibo" target="_blank" class="btn-hero btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span data-i18n="home.btn.github">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/victor-ji-b35a94304" target="_blank" class="btn-hero btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span data-i18n="home.btn.linkedin">LinkedIn</span>
+          </a>
+          <a href="mailto:victor.Ji@etu.sorbonne-universite.fr" class="btn-hero btn-ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,12 2,6"/>
+            </svg>
+            <span data-i18n="home.btn.contact">Contact</span>
+          </a>
         </div>
 
-        <nav>
-            <div class="ham-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-      
+        <!-- Scroll indicator -->
+        <div id="scroll-indicator" class="reveal">
+          <div id="scroll-line"></div>
+          <span data-i18n="home.scroll">Scroll</span>
+        </div>
 
-        <nav class="nav-top-right" id="menu">
-            <ul>
-                <li><a href="page_accueil.html">Accueil</a></li>
-                <li><a href="page_projet.html">Projet</a></li>
-                <li><a href="page_contact.html">Contact</a></li>
-                <li><a href="page_a_propos.html">À propos</a></li>
-            </ul>
-        </nav>
-        
-        <div class="container"> <!--Night mode-->
-            <div class="eyeBall" id="night_mode">
-                <div class="iris"></div>
-            </div>
-        </div>
-    </header>
-    <main>
-        
-    </main>
-    <footer>
-        <h5><i>© 2025 Victor Ji. Tous droits réservés. Dernière mise à jour : 03/05/2025</i></h5>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/victor-ji-b35a94304" target="_blank">
-                <img src="images/logo_linkedin.png" alt="LinkedIn" class="footer-icon" id="logo_linkedin">
-            </a>
-            <a href="mailto:victor.Ji@etu.sorbonne-universite.fr">
-                <img src="images/logo_mail.png" alt="Email" class="footer-icon">
-            </a>
-        </div>
-    </footer>
-    <script src="scripts/script_global.js"></script>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <footer>
+    <h5 data-i18n="footer.copy">© 2025 Victor Ji · Tous droits réservés</h5>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/victor-ji-b35a94304" target="_blank">
+        <img src="images/logo_linkedin.png" alt="LinkedIn" class="footer-icon" id="logo_linkedin">
+      </a>
+      <a href="mailto:victor.Ji@etu.sorbonne-universite.fr">
+        <img src="images/logo_mail.png" alt="Email" class="footer-icon">
+      </a>
+    </div>
+  </footer>
+
+  <script src="scripts/script_global.js"></script>
+  <script src="scripts/script_accueil.js"></script>
 </body>
 </html>
