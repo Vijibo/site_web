@@ -1,3 +1,1 @@
-Pas grand chose à dire à part le fait que j'ai passé un peu trop de temps sur l'aspect visuel...
-
-pour y accéder : https://vijibo.github.io/site_web/page_accueil.html
+Mon ancien site...RIP
