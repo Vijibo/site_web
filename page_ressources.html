@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sélection de films, séries et mangas à découvrir." data-i18n-content="meta.resources">
+  <title>Sélection culturelle | Portfolio</title>
+  <link rel="icon" type="image/png" href="images/Logo_transparent.png">
+  <link rel="stylesheet" href="styles/style_globaux.css">
+  <link rel="stylesheet" href="styles/style_ressources.css">
+</head>
+<body data-i18n-title="title.resources">
+
+  <header>
+    <a href="page_accueil.html" class="logo-link">
+      <img src="images/Logo_header.png" alt="Logo" class="logo">
+    </a>
+    <nav class="nav-top-right" id="menu">
+      <ul>
+        <li><a href="page_accueil.html" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="page_projet.html" data-i18n="nav.projects">Projet</a></li>
+        <li><a href="page_ressources.html" class="active" data-i18n="nav.resources">Ressources</a></li>
+        <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+        <li><a href="utile/CV_Victor_Ji.pdf" target="_blank" class="cv-link">CV</a></li>
+        <li><button class="lang-switch" data-lang-switch type="button">EN</button></li>
+      </ul>
+    </nav>
+    <button class="ham-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="eye-container">
+      <div class="eyeBall" id="night_mode"><div class="iris"></div></div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="fullscreen-menu" aria-hidden="true">
+    <ul>
+      <li><a href="page_accueil.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="page_projet.html" data-i18n="nav.projects">Projet</a></li>
+      <li><a href="page_ressources.html" data-i18n="nav.resources">Ressources</a></li>
+      <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="utile/CV_Victor_Ji.pdf" target="_blank">CV</a></li>
+      <li><button class="lang-switch lang-switch-mobile" data-lang-switch type="button">EN</button></li>
+    </ul>
+  </div>
+
+  <main>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+    <div id="ressources-wrap">
+
+      <div class="ressources-header reveal">
+        <h1 data-i18n="resources.title">Sélection <span class="accent">culturelle</span></h1>
+        <p data-i18n="resources.subtitle">Quelques films, séries, animes, mangas et manhwas que j’ai aimés.</p>
+      </div>
+
+      <section class="resource-section reveal">
+        <h2 data-i18n="resources.screen.title">Films</h2>
+        <ul class="resource-list childhood-list resource-list-mosaic">
+          <li>Good Will Hunting</li>
+          <li>Charlie Chaplin — Les Temps modernes</li>
+          <li>WALL·E</li>
+        </ul>
+      </section>
+
+      <section class="resource-section reveal">
+        <h2 data-i18n="resources.series.title">Séries</h2>
+        <div class="resource-list resource-list-mosaic">
+          <article class="resource-item resource-item--small">
+            <h3>The Day of the Jackal</h3>
+            <p>Des protagonistes confrontés à des choix impossibles dans un monde sous tension, entre loyauté, survie et trahison.</p>
+          </article>
+          <article class="resource-item resource-item--wide">
+            <h3>Casa de Papel</h3>
+            <p>Une équipe de criminels met en place un ambitieux braquage dans la Maison de la Monnaie d’Espagne, avec une tension constante.</p>
+          </article>
+          <article class="resource-item resource-item--compact">
+            <h3>Black Mirror</h3>
+            <p>Chaque épisode explore les conséquences insoupçonnées de la technologie et de la société moderne.</p>
+          </article>
+          <article class="resource-item resource-item--small">
+            <h3>Walking Dead</h3>
+            <p>Un groupe de survivants lutte pour rester vivant dans un monde ravagé par l’apocalypse.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resource-section reveal">
+        <h2 data-i18n="resources.anime.title">Anime</h2>
+        <div class="resource-list resource-list-mosaic">
+          <article class="resource-item resource-item--compact">
+            <h3>86</h3>
+            <p>Dans un monde où la guerre est menée par des machines, Shin s’engage dans une bataille où chaque mission peut être la dernière.</p>
+          </article>
+          <article class="resource-item resource-item--small">
+            <h3>Magi</h3>
+            <p>Aladdin voyage avec ses amis dans un monde de magiciens, de royaumes et de créatures mystérieuses.</p>
+          </article>
+          <article class="resource-item resource-item--wide">
+            <h3>Hunter x Hunter</h3>
+            <p>Gon Freecss part à l’aventure pour devenir un Hunter et retrouver son père disparu, dans un périple de défis et de combats décisifs.</p>
+          </article>
+          <article class="resource-item resource-item--tall">
+            <h3>Cyberpunk: Edgerunners</h3>
+            <p>Dans une mégalopole cyberpunk, David tente de survivre au milieu d’une société dévastée et d’une violence omniprésente.</p>
+          </article>
+          <article class="resource-item resource-item--compact">
+            <h3>Made in Abyss</h3>
+            <p>Riko part à la recherche de sa mère au cœur d’un gouffre rempli de secrets et d’émerveillement.</p>
+          </article>
+          <article class="resource-item resource-item--wide">
+            <h3>Kabaneri of the Iron Fortress</h3>
+            <p>Ikoma et les habitants d’une forteresse en acier tentent de survivre dans un monde envahi par des créatures monstrueuses.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resource-section reveal">
+        <h2 data-i18n="resources.manga.title">Mangas &amp; manhwas</h2>
+        <div class="resource-list resource-list-mosaic">
+          <article class="resource-item resource-item--wide">
+            <h3>Sousou no Frieren</h3>
+            <p>Après la victoire contre le démon, Frieren reprend sa route et se confronte à l’écoulement du temps et à la mémoire de ses amis.</p>
+          </article>
+          <article class="resource-item resource-item--small">
+            <h3>Le Prix du reste de ma vie</h3>
+            <p>Une histoire sur la vie, les choix et la manière dont chaque instant compte.</p>
+          </article>
+          <article class="resource-item resource-item--tall">
+            <h3>Fire Punch</h3>
+            <p>Agni, jeune homme doté d’un pouvoir exceptionnel, se retrouve entraîné dans une traversée du désespoir et de la violence.</p>
+          </article>
+          <article class="resource-item resource-item--compact">
+            <h3>Distant Sky</h3>
+            <p>Un voyage intime et mélancolique entre souvenirs, solitude et rêves lointains.</p>
+          </article>
+          <article class="resource-item resource-item--small">
+            <h3>The Horizon</h3>
+            <p>Dans un monde où la réalité s’efface, des personnages cherchent une vérité cachée derrière l’horizon.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resource-section reveal">
+        <h2 data-i18n="resources.childhood.title">Dessins animés &amp; enfance</h2>
+        <ul class="resource-list childhood-list resource-list-mosaic">
+          <li>Jack et le cœur mécanique</li>
+          <li>Films du Studio Ghibli</li>
+          <li>CJ7</li>
+          <li>The Secret of the Magic Gourd</li>
+          <li>The Legend of Luo Xiaohei</li>
+          <li>Samsam</li>
+          <li>Dinotrain</li>
+          <li>Artzooka !</li>
+          <li>Sid le petit scientifique</li>
+          <li>Il était une fois la vie</li>
+          <li>W.I.T.C.H</li>
+          <li>Ratz</li>
+          <li>Code Lyoko</li>
+          <li>Linus et Boom</li>
+          <li>Yakari</li>
+          <li>Les zinzins de l’espace</li>
+          <li>Léonard</li>
+          <li>Redakai</li>
+          <li>Doraemon</li>
+          <li>Heidi</li>
+          <li>Shuriken School</li>
+          <li>Sally Bollywood</li>
+          <li>Angélo la Débrouille</li>
+          <li>Gravity Falls</li>
+          <li>Inspecteur Gadget</li>
+          <li>Flapacha</li>
+          <li>Xiaolin Chronicles</li>
+          <li>Kamen Rider OOO</li>
+          <li>Armor Hero</li>
+          <li>Black Cat Detective (Hei Mao Jing Zhang)</li>
+          <li>Calabash Brothers (Huluwa)</li>
+        </ul>
+      </section>
+
+      <section class="resource-section resource-section-music reveal">
+        <h2 data-i18n="resources.music.title">Musique</h2>
+        <p class="music-thanks" data-i18n="resources.music.thanks">Merci à Mostafa Alagamy d’avoir créé Metrolist et de l’avoir rendu open source.</p>
+        <p class="music-description" data-i18n="resources.music.description">J’écoute un peu de tout, dans différentes langues, mais surtout en français et en anglais.</p>
+        <p class="music-now-playing"><span class="music-now-playing-dot" aria-hidden="true"></span><span data-i18n="resources.music.nowPlaying">En ce moment : Me &amp; U — Tems</span></p>
+        <ul class="music-artists" aria-label="Artistes que j’écoute">
+          <li>Drake</li>
+          <li>SZA</li>
+          <li>Tiakola</li>
+          <li>Ariana Grande</li>
+          <li>The Weeknd</li>
+          <li>Ninho</li>
+          <li>Damso</li>
+          <li>Yamê</li>
+          <li>Billie Eilish</li>
+          <li>MHD...</li>
+        </ul>
+      </section>
+
+      <section class="resource-section resource-section-finance reveal">
+        <h2 data-i18n="resources.finance.title">Stratégie financière</h2>
+        <p class="finance-summary" data-i18n="resources.finance.description">Pour l’instant : PEA · DCA · ETF monde.</p>
+      </section>
+
+      <section class="resource-section reveal">
+        <h2>Jeux</h2>
+        <ul class="resource-list childhood-list resource-list-mosaic">
+          <li>Minecraft</li>
+          <li>Assassin’s Creed IV: Black Flag</li>
+          <li>TFT</li>
+          <li>Soul Knight</li>
+          <li>ARK</li>
+          <li>Wizard101</li>
+          <li>Club Penguin</li>
+          <li>Dofus Touch</li>
+          <li>Street Fighter IV</li>
+          <li>Trackmania</li>
+          <li>Transformice</li>
+          <li>DDTank</li>
+          <li>Critical Ops</li>
+          <li>Hearthstone</li>
+          <li>PUBG</li>
+          <li>Happy Wheels</li>
+        </ul>
+        <h3 class="resource-subheading">Sites de jeux vidéo</h3>
+        <ul class="resource-list childhood-list resource-list-mosaic">
+          <li>jeux.fr</li>
+          <li>4399</li>
+          <li>7K7K</li>
+          <li>La ferme sur QQ</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <h5 data-i18n="footer.copy">© 2025 · Tous droits réservés</h5>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/victor-ji-b35a94304" target="_blank">
+        <img src="images/logo_linkedin.png" alt="LinkedIn" class="footer-icon" id="logo_linkedin">
+      </a>
+      <a href="mailto:victor.Ji@etu.sorbonne-universite.fr">
+        <img src="images/email-icon.svg" alt="Email" class="footer-icon email-icon">
+      </a>
+    </div>
+  </footer>
+
+  <script src="scripts/script_global.js"></script>
+  <script src="scripts/script_accueil.js"></script>
+</body>
+</html>

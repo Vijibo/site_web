@@ -1,0 +1,262 @@
+/* ============================================
+   STYLE RESSOURCES — Sélection utile
+   ============================================ */
+
+#ressources-wrap {
+  max-width: 1400px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  padding: 110px 8px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.ressources-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.ressources-header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 6vw, 60px);
+  font-weight: 800;
+  color: #f0f4ff;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+.ressources-header h1 .accent {
+  background: linear-gradient(135deg, #d7dde6, #eef2f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ressources-header p {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  color: rgba(211, 220, 232, 0.75);
+  letter-spacing: 0.03em;
+}
+
+.resource-section {
+  background: rgba(16,20,28,0.5);
+  border: 0.5px solid rgba(215,224,236,0.2);
+  border-radius: 18px;
+  padding: 22px;
+  backdrop-filter: blur(14px);
+}
+.resource-section h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: #edf2fa;
+}
+.resource-section-music {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top right, rgba(140, 125, 255, 0.12), transparent 48%),
+    linear-gradient(135deg, rgba(12, 16, 26, 0.88), rgba(19, 22, 34, 0.78));
+  border: 1px solid rgba(191, 184, 255, 0.24);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.04);
+}
+.resource-section-music h2 {
+  color: #f5f3ff;
+}
+.resource-section-finance {
+  background:
+    radial-gradient(ellipse at top right, rgba(74, 190, 177, 0.13), transparent 48%),
+    linear-gradient(135deg, rgba(10, 22, 27, 0.94), rgba(15, 29, 34, 0.88));
+  border: 1px solid rgba(130, 220, 207, 0.3);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.05);
+}
+.resource-section-finance h2 {
+  color: #f0fffc;
+}
+.finance-summary {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(130, 220, 207, 0.24);
+  border-radius: 12px;
+  background: rgba(91, 190, 177, 0.1);
+  color: #e2faf5;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.music-thanks,
+.music-description {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.music-thanks {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 9px 12px;
+  border-left: 2px solid #b6a8ff;
+  border-radius: 0 10px 10px 0;
+  background: rgba(160, 145, 255, 0.09);
+  color: #e8e3ff;
+}
+.music-description {
+  margin-bottom: 16px;
+  color: rgba(232, 239, 248, 0.86);
+}
+.music-now-playing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 16px;
+  padding: 7px 10px;
+  border: 1px solid rgba(215, 224, 236, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(232, 239, 248, 0.72);
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.music-now-playing-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: #a99aff;
+  box-shadow: 0 0 8px rgba(169, 154, 255, 0.55);
+}
+.music-artists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+.music-artists li {
+  padding: 8px 12px;
+  border: 1px solid rgba(194, 184, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(145, 129, 255, 0.09);
+  color: #f3f0ff;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.music-artists li:hover {
+  transform: translateY(-2px);
+  border-color: rgba(194, 184, 255, 0.48);
+  background: rgba(145, 129, 255, 0.17);
+}
+.resource-subheading {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  margin: 18px 0 10px;
+  color: #edf2fa;
+}
+
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  grid-auto-flow: dense;
+  gap: 12px;
+  align-items: stretch;
+}
+.resource-list-mosaic {
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+}
+.resource-item {
+  border: 0.5px solid rgba(215,224,236,0.2);
+  border-radius: 14px;
+  background: rgba(11,14,21,0.46);
+  padding: 14px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.resource-item--wide {
+  grid-column: span 2;
+}
+.resource-item--tall {
+  grid-row: span 2;
+}
+.resource-item--compact {
+  min-height: 96px;
+}
+.resource-item--small {
+  min-height: 88px;
+}
+.resource-item h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #f2f6fc;
+}
+.resource-item p,
+.resource-note,
+.childhood-list li {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(232, 239, 248, 0.9);
+}
+
+.childhood-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.childhood-list li {
+  background: rgba(14, 18, 26, 0.42);
+  border: 0.5px solid rgba(215,224,236,0.2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 0;
+  text-align: left;
+  color: #edf3ff;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .resource-list-mosaic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .resource-item--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  #ressources-wrap { width: calc(100% - 16px); padding: 90px 4px 90px; }
+  .resource-list-mosaic { grid-template-columns: 1fr; }
+  .resource-item--wide,
+  .resource-item--tall,
+  .resource-item--compact,
+  .resource-item--small { grid-column: span 1; grid-row: span 1; }
+  .childhood-list li {
+    padding: 6px 9px;
+    font-size: 11px;
+  }
+}
+
+/* Styles pour les iframes YouTube */
+.resource-item iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  margin-top: 12px;
+  border: none;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projets en informatique : développement logiciel, algorithmique et simulation." data-i18n-content="meta.projects">
+  <title>Projets scolaires | Portfolio</title>
+  <link rel="icon" type="image/png" href="images/Logo_transparent.png">
+  <link rel="stylesheet" href="styles/style_globaux.css">
+  <link rel="stylesheet" href="styles/style_projets.css">
+</head>
+<body data-i18n-title="title.projects">
+
+  <header>
+    <a href="page_accueil.html" class="logo-link">
+      <img src="images/Logo_header.png" alt="Logo" class="logo">
+    </a>
+    <nav class="nav-top-right" id="menu">
+      <ul>
+        <li><a href="page_accueil.html" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="page_projet.html" class="active" data-i18n="nav.projects">Projet</a></li>
+        <li><a href="page_ressources.html" data-i18n="nav.resources">Ressources</a></li>
+        <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+        <li><a href="utile/CV_Victor_Ji.pdf" target="_blank" class="cv-link">CV</a></li>
+        <li><button class="lang-switch" data-lang-switch type="button">EN</button></li>
+      </ul>
+    </nav>
+    <button class="ham-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="eye-container">
+      <div class="eyeBall" id="night_mode"><div class="iris"></div></div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="fullscreen-menu" aria-hidden="true">
+    <ul>
+      <li><a href="page_accueil.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="page_projet.html" data-i18n="nav.projects">Projet</a></li>
+      <li><a href="page_ressources.html" data-i18n="nav.resources">Ressources</a></li>
+      <li><a href="page_a_propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="utile/CV_Victor_Ji.pdf" target="_blank">CV</a></li>
+      <li><button class="lang-switch lang-switch-mobile" data-lang-switch type="button">EN</button></li>
+    </ul>
+  </div>
+
+  <main>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+    <div id="projets-wrap">
+      <div class="projets-header reveal">
+        <h1 data-i18n="projects.title">Projets <span class="accent">scolaires</span></h1>
+        <p data-i18n="projects.subtitle">C’était sympa… je suppose.</p>
+      </div>
+
+      <nav class="project-filters" data-i18n-aria-label="projects.filter.label" aria-label="Filtrer les projets">
+        <button class="project-filter" type="button" data-project-filter="all" data-i18n="projects.filter.all" aria-pressed="true">Tous</button>
+        <button class="project-filter" type="button" data-project-filter="Python" aria-pressed="false">Python</button>
+        <button class="project-filter" type="button" data-project-filter="C" aria-pressed="false">C</button>
+        <button class="project-filter" type="button" data-project-filter="Java" aria-pressed="false">Java</button>
+        <button class="project-filter" type="button" data-project-filter="JavaScript" aria-pressed="false">JavaScript</button>
+      </nav>
+      <p class="project-filter-status" id="project-filter-status" aria-live="polite">6 projets</p>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <a href="https://github.com/Vijibo/Projet" target="_blank" rel="noopener noreferrer" class="project-link reveal" data-category="Python">
+          <div class="project-card" id="Projet1">
+            <div class="project-bg"></div>
+            <div class="project-content">
+              <div class="project-tags"><span>Python</span><span>ML</span><span>Data</span></div>
+              <h3 data-i18n="projects.p1.title">Prédiction</h3>
+              <p data-i18n="projects.p1.desc">Algorithmes KNN et classification bayésienne pour prédire la qualité carbone des sources d'énergie. Données open source RTE & Météo France.</p>
+            </div>
+            <div class="project-arrow" aria-hidden="true">↗</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/Vijibo/Automate" target="_blank" rel="noopener noreferrer" class="project-link reveal" data-category="Python">
+          <div class="project-card" id="Projet2">
+            <div class="project-bg"></div>
+            <div class="project-content">
+              <div class="project-tags"><span>Python</span><span>Graphes</span><span>Maths</span></div>
+              <h3 data-i18n="projects.p2.title">Automate</h3>
+              <p data-i18n="projects.p2.desc">Étude des automates et des graphes, avec des algorithmes et des visualisations autour de problèmes de mathématiques discrètes.</p>
+            </div>
+            <div class="project-arrow" aria-hidden="true">↗</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/Vijibo/Ecosys" target="_blank" rel="noopener noreferrer" class="project-link reveal" data-category="C">
+          <div class="project-card" id="Projet3">
+            <div class="project-bg"></div>
+            <div class="project-content">
+              <div class="project-tags"><span>C</span><span>Simulation</span></div>
+              <h3 data-i18n="projects.p3.title">Écosystème</h3>
+              <p data-i18n="projects.p3.desc">Simulation en C d'un écosystème proies-prédateurs, avec modélisation des interactions entre espèces.</p>
+            </div>
+            <div class="project-arrow" aria-hidden="true">↗</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/Vijibo/Simulateur-de-CPU" target="_blank" rel="noopener noreferrer" class="project-link reveal" data-category="C">
+          <div class="project-card" id="Projet4">
+            <div class="project-bg"></div>
+            <div class="project-content">
+              <div class="project-tags"><span>C</span><span>Architecture</span></div>
+              <h3 data-i18n="projects.p4.title">SDC</h3>
+              <p data-i18n="projects.p4.desc">Simulateur de processeur en C capable d'exécuter un langage assembleur personnalisé.</p>
+            </div>
+            <div class="project-arrow" aria-hidden="true">↗</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/Vijibo/Fractale" target="_blank" rel="noopener noreferrer" class="project-link reveal" data-category="Java">
+          <div class="project-card" id="Projet5">
+            <div class="project-bg"></div>
+            <div class="project-content">
+              <div class="project-tags"><span>Java</span><span>Swing</span><span>Multithreading</span></div>
+              <h3 data-i18n="projects.p5.title">Fractale</h3>
+              <p data-i18n="projects.p5.desc">Visualisation interactive de la fractale de Mandelbrot en Java. Zoom, déplacement, thèmes de couleurs, export PNG/JPEG/BMP.</p>
+            </div>
+            <div class="project-arrow" aria-hidden="true">↗</div>
+          </div>
+        </a>
+
+        <a href="jeu de la vie.html" class="project-link reveal" data-category="JavaScript">
+          <div class="project-card" id="Projet6">
+            <div class="project-bg"></div>
+            <div class="project-content">
+              <div class="project-tags"><span>JavaScript</span><span>Canvas</span><span>Simulation</span></div>
+              <h3 data-i18n="projects.p6.title">Jeu de la vie</h3>
+              <p data-i18n="projects.p6.desc">Simulation du jeu de la vie de Conway, avec grille interactive, contrôle de la vitesse et motifs prédéfinis.</p>
+            </div>
+            <div class="project-arrow" aria-hidden="true">↗</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <h5 data-i18n="footer.copy">© 2025 · Tous droits réservés</h5>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/victor-ji-b35a94304" target="_blank">
+        <img src="images/logo_linkedin.png" alt="LinkedIn" class="footer-icon" id="logo_linkedin">
+      </a>
+      <a href="mailto:victor.Ji@etu.sorbonne-universite.fr">
+        <img src="images/email-icon.svg" alt="Email" class="footer-icon email-icon">
+      </a>
+    </div>
+  </footer>
+
+  <script src="scripts/script_global.js"></script>
+  <script src="scripts/script_accueil.js"></script>
+  <script src="scripts/script_projets.js"></script>
+</body>
+</html>
